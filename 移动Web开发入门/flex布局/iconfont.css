@@ -1,0 +1,183 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 3159642 */
+  src: url('./fonts/iconfont.woff2?t=1657280881750') format('woff2'),
+    url('./fonts/iconfont.woff?t=1657280881750') format('woff'),
+    url('./fonts/iconfont.ttf?t=1657280881750') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  color: gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gouwuchekong:before {
+  content: "\e600";
+}
+
+.icon-yingyongzhongxin:before {
+  content: "\e601";
+}
+
+.icon-xinlangweibo:before {
+  content: "\e602";
+}
+
+.icon-weixin:before {
+  content: "\e603";
+}
+
+.icon-xiangyou1:before {
+  content: "\e775";
+}
+
+.icon-shouye:before {
+  content: "\e64f";
+}
+
+.icon-gerenzhongxin:before {
+  content: "\e659";
+}
+
+.icon-xiangzuo:before {
+  content: "\eb15";
+}
+
+.icon-Magnifier:before {
+  content: "\e62d";
+}
+
+.icon-qq:before {
+  content: "\e60d";
+}
+
+.icon-xiangshang2:before {
+  content: "\e669";
+}
+
+.icon-xiangxia2:before {
+  content: "\e66b";
+}
+
+.icon-xiangxia:before {
+  content: "\e65b";
+}
+
+.icon-houtui:before {
+  content: "\e65c";
+}
+
+.icon-xiangshang:before {
+  content: "\e65d";
+}
+
+.icon-qianjin:before {
+  content: "\e65e";
+}
+
+.icon-anquan:before {
+  content: "\e65f";
+}
+
+.icon-chufang:before {
+  content: "\e660";
+}
+
+.icon-yaopinjiage:before {
+  content: "\e66a";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #ccc;
+}
+
+span {
+  color: gray;
+}
+
+
+.style_red {
+  color: red;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+header {
+  display: flex;
+  height: 50px;
+  background-color: red;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main-content {
+  display: flex;
+  background-color: green;
+  flex: 1;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-sitebar {
+  display: flex;
+  width: 150px;
+  background-color: pink;
+  color: white;
+  justify-content: center;
+  align-items: center;
+
+}
+
+li {
+  list-style: none;
+}
+
+footer {
+  height: 50px;
+  background-color: yellow;
+  display: flex;
+}
+
+.tabbar {
+  display: flex;
+  width: 100%;
+}
+
+.tabbar-item {
+  flex: 1;
+}
+
+/* 这里a标签宽度自动撑开是因为,主轴在竖直方向,交叉轴在水平方向,align-items默认值为stretch,在没有设置交叉轴方向上的大小时,自动撑满 */
+.tabar-link {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  text-decoration: none;
+  color: gray;
+  justify-content: center;
+  align-items: center;
+}

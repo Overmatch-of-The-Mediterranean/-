@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.什么时媒体查询 */
+        /* @media screen and (min-width:900px) {
+            body {
+                background-color: red;
+            }
+        } */
+
+        /* 2.为什么需要媒体查询 */
+        /* 一套样式不可能适应各种大小的屏幕
+        针对不同的屏幕大小写样式
+        让我们的页面在不同大小的屏幕上都能正常显示 */
+        /* 3.媒体类型
+            all(默认)
+            screen/print/speech
+         */
+        /* @media (max-width:600px) {
+            body {
+                background-color: orange;
+            }
+        } */
+
+        /* 4.媒体查询中的逻辑 
+            与(and)
+            或(,) ,前后各为一个整体
+            非(not) 全部and为一个整体，not对整体and进行否定，,前后各为一个整体
+        */
+        /* @media screen and (min-width:900px) and (max-width:1300px) {
+            body {
+                background-color: red;
+            }
+        } */
+        /* @media screen and (max-width:900px),
+        screen and (min-width:1300px) {
+            body {
+                background-color: red;
+            }
+        } */
+
+        @media not screen and (max-width:900px),
+        /*,前后各为一个整体 这里not只对前面的这个and整体作用 */
+        screen and (min-width:1300px) {
+            body {
+                background-color: red;
+            }
+        }
+
+        /* 5.媒体特征表达式
+            width/max-width/min-width
+            -webkit-device-pixel-ratio/-webkit-max-device-pixel-ratio/-webkit-min-device-pixel-ratio
+            orientation：landscape(横屏)/portrait(竖屏)
+
+            不常用
+            height
+            device-width/device-height
+            screen.width/screen.height
+            aspect-ratio 视口的宽高比
+        */
+
+        @media (-webkit-device-pixel-ratio:2) and (orientation:landscape) {
+            body {
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+</html>

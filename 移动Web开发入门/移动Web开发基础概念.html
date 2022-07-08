@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口宽度：视口应该显示的css像素-->
+    <!-- 可以直接设置 width=400
+        也可以根据设备自动设置  width=device-width
+    -->
+    <!-- initial-scale=x  起始缩放比 -->
+    <!-- 考虑兼容性，两者都写 -->
+    <!-- user-scalable=no   允许不允许用户缩放-->
+    <!-- maximum-scale=1 最大缩放比-->
+    <!-- minimum-scale=1 最小缩放比-->
+    <meta name="viewport" content="initial-scale=1,width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="小米.webp" alt="">
+    <script>
+        // 获取视口相关的参数
+        console.log(window.innerWidth);
+        console.log(document.documentElement.clientWidth);
+        console.log(document.documentElement.getBoundingClientRect().width);
+
+        // 考虑兼容性可以这样写
+        var viewWidth = window.innerWidth || document.documentElement.clientWidth;
+        console.log(viewWidth);
+
+
+
+        //兼容性不好,有时可获取视口宽度，有时获取分辨率，尽量不用
+        console.log(screen.width);
+
+
+        // dpr 设备像素比，指的单方向的
+        // dpr=2表示一个css像素用2×2个物理像素来绘制
+        console.log(window.devicePixelRatio);
+
+        //PPI:每英寸的物理像素点
+    </script>
+</body>
+
+</html>
