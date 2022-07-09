@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="iconfont.css">
+    <style>
+        /* px/%/em/rem/vw/vh */
+
+        /* em在css中不常用，修改起来太麻烦，一般用于段落开头缩进 */
+        /* em根据自身的font-size来改变，当自身没有，才使用父元素的 */
+        /* rem r是根，就是html，rem统一html的font-size，修改时方便，常用 */
+        /* vw：视口宽的百分比 */
+        /* vh：视口高的百分比 */
+
+        /* 375px-> 1rem=20px */
+        /* height = 50/20 = 2.5rem */
+        /* 750px-> 1rem=40px */
+        /* height = 100/40 =2.5rem */
+        /* ?(视口宽度)-> 1rem = (?/375) * 20px*/
+        /* ?(视口宽度)=
+            document.documentElement.clientWidth
+            1rem = (
+                document.documentElement.clientWidth/375)*20px
+        */
+    </style>
+</head>
+
+<body>
+
+    <footer class="tabbar-container">
+        <ul class="tabbar">
+            <li class="tabbar-item tabbar-item-active">
+                <a href="#" class=" tabar-link">
+                    <i class="style_red iconfont icon-shouye"></i>
+                    <span class="style_red">首页</span>
+                </a>
+            </li>
+            <li class="tabbar-item tabbar-item-active">
+                <a href="#" class="tabar-link">
+                    <i class="iconfont icon-yingyongzhongxin"></i>
+                    <span>分类</span>
+                </a>
+            </li>
+            <li class="tabbar-item tabbar-item-active">
+                <a href="#" class="tabar-link">
+                    <i class="iconfont icon-gouwuchekong"></i>
+                    <span>购物车</span>
+                </a>
+            </li>
+            <li class="tabbar-item tabbar-item-active">
+                <a href="#" class="tabar-link">
+                    <i class="iconfont icon-gerenzhongxin"></i>
+                    <span>个人中心</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script>
+        setRemUnit();
+        window.onresize = setRemUnit;
+        function setRemUnit() {
+            var docuEl = document.documentElement;
+            var viewWidth = docuEl.clientWidth;
+            docuEl.style.fontSize = viewWidth / 375 * 20 + 'px';
+        }
+    </script>
+</body>
+
+</html>

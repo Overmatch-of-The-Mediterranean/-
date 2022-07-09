@@ -1,0 +1,156 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 3159642 */
+  src: url('./fonts/iconfont.woff2?t=1657280881750') format('woff2'),
+    url('./fonts/iconfont.woff?t=1657280881750') format('woff'),
+    url('./fonts/iconfont.ttf?t=1657280881750') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  color: gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gouwuchekong:before {
+  content: "\e600";
+}
+
+.icon-yingyongzhongxin:before {
+  content: "\e601";
+}
+
+.icon-xinlangweibo:before {
+  content: "\e602";
+}
+
+.icon-weixin:before {
+  content: "\e603";
+}
+
+.icon-xiangyou1:before {
+  content: "\e775";
+}
+
+.icon-shouye:before {
+  content: "\e64f";
+}
+
+.icon-gerenzhongxin:before {
+  content: "\e659";
+}
+
+.icon-xiangzuo:before {
+  content: "\eb15";
+}
+
+.icon-Magnifier:before {
+  content: "\e62d";
+}
+
+.icon-qq:before {
+  content: "\e60d";
+}
+
+.icon-xiangshang2:before {
+  content: "\e669";
+}
+
+.icon-xiangxia2:before {
+  content: "\e66b";
+}
+
+.icon-xiangxia:before {
+  content: "\e65b";
+}
+
+.icon-houtui:before {
+  content: "\e65c";
+}
+
+.icon-xiangshang:before {
+  content: "\e65d";
+}
+
+.icon-qianjin:before {
+  content: "\e65e";
+}
+
+.icon-anquan:before {
+  content: "\e65f";
+}
+
+.icon-chufang:before {
+  content: "\e660";
+}
+
+.icon-yaopinjiage:before {
+  content: "\e66a";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 20px;
+}
+
+body {
+  height: 100%;
+  background-color: #ccc;
+  display: flex;
+  align-items: flex-end;
+}
+
+span {
+  color: gray;
+}
+
+
+.style_red {
+  color: red;
+}
+
+footer {
+  width: 100%;
+  height: rem;
+  /* em根据自身的font-size来改变，当自身没有，才使用父元素的 */
+  background-color: yellow;
+  font-size: 10px;
+}
+
+.tabbar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.tabbar-item {
+  flex: 1;
+  height: 100%;
+}
+
+.tabar-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  font-size: 0.6rem;
+}
+
+.tabar-link .iconfont {
+  font-size: 1.2rem;
+
+}
+
+li {
+  list-style: none;
+}

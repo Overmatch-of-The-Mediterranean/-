@@ -1,0 +1,92 @@
+/* 布局 start */
+/* header */
+.header-container {
+    background-color: #fff;
+    border-bottom: 1px solid #dadada;
+}
+
+.header-logo-container,
+.header-btn-container,
+.header-nav-container {
+    height: 64px;
+
+}
+
+.header-btn-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+/* 布局 end */
+
+
+/* 组件 start */
+/* btn-toggle */
+.btn-toggle {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-toggle:hover {
+    background-color: #f9f9f9;
+}
+
+.btn-toggle-bar {
+    display: block;
+    width: 24px;
+    height: 4px;
+    background-color: #363636;
+    border-radius: 2px;
+}
+
+.btn-toggle-bar+.btn-toggle-bar {
+    margin-top: 4px;
+}
+
+.btn-toggle:hover .btn-toggle-bar {
+    background-color: #1428a0;
+}
+
+/* 组件 end */
+
+
+/* 内容 start */
+/* header */
+.header-logo {
+    width: 136px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-nav,
+.header-nav-item,
+.header-nav-link {
+    height: 100%;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+}
+
+.header-nav-item {
+    margin-left: 24px;
+}
+
+.header-nav-item:first-child {
+    margin-left: 0;
+}
+
+.header-nav-link {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* 内容 end */
