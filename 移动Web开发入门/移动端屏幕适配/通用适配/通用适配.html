@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            height: 100%;
+            font-size: 20px;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        .header-container {
+            height: 2.5rem;
+            background-color: rgba(222, 24, 27, 0.9);
+            border-bottom: 1px solid #000;
+        }
+
+        .main-container {
+            /* padding: 100px 0; */
+            background-color: #eee;
+        }
+
+        .slider-container {
+            height: 9.15rem;
+            background-color: green;
+        }
+
+        .nav-container {
+            height: 8.475rem;
+            background-color: blue;
+        }
+
+        .recommend-container {
+            height: 2000px;
+            background-color: pink;
+        }
+
+        .tabbar-container {
+            height: 2.5rem;
+            background-color: orange;
+        }
+
+        .header-container,
+        .tabbar-container {
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            width: 100%;
+        }
+
+        .header-container {
+            top: 0;
+        }
+
+        .tabbar-container {
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-container"></header>
+    <!-- <div class="main-container">
+        <div class="slider-container"></div>
+        <div class="nav-container"></div>
+        <div class="recommend-container"></div>
+    </div>
+    <div class="tabbar-container"></div> -->
+    <script src="js/common.js"></script>
+</body>
+
+</html>
