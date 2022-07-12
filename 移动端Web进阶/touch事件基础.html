@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box"></div>
+    <script>
+        // 移动端事件:
+        // 1.触摸事件
+        //   触摸事件包括两种:
+        //   touch(兼容性好)
+        //   pointer(微软独立开发的,将鼠标和触摸事件统一为为pointer事件,PC和移动端均可使用,兼容性不好)
+        // 2.手势事件(兼容性不好,使用不广泛,可以通过触摸事件封装实现)
+        // 3.传感器事件(兼容性不好,使用不广泛),其可以得到设备在三维坐标系下的坐标,倾斜角度等等
+
+
+        // touchcancel是系统级事件，事件不常用，移动端发生触摸中断才触发，例如手机上正在划着看新闻，突然一个电话打进来，这时就中断了触摸事件，跳转到通话界面
+        // touchstart一定要在目标里面才能触发，只有touchstart触发，touchmove，touchend才有触发的可能
+        // touchstart触发，touchmove和touchend就算不在目标里面也能触发
+
+
+        var boxEl = document.getElementById('box');
+        // boxEl.ontouchstart = handleStart;
+        // boxEl.ontouchmove = handleMove;
+        // boxEl.ontouchend = handleEnd;
+
+        boxEl.addEventListener('touchstart', handleStart, false);
+        boxEl.addEventListener('touchmove', handleMove, false);
+        boxEl.addEventListener('touchend', handleEnd, false);
+
+        // touch事件的event对象
+        // ev对象中常用的属性：
+        // touches,targetTouches,changedTouches所有的手指信息都包含在这三个触摸列表(类数组)里面，大部分情况下，里面的东西相似
+        // length长度代表有几个手指头
+        // touches：作用于所有地方，能捕捉到所有手指的信息
+        // targetTouches：作用于目标物体，只能捕捉到目标物体上的手指信息
+        // changedTouches：只能捕捉到发生变化的手指信息
+        // type：能够获取此时触发事件的类型，如，touchstart，或touchend等等
+
+        // 一般情况下使用changedTouch
+        // client计算的是可视区坐标(距离屏幕边缘的位置，相对的点是可视区的左上角，即，不包含滚动条滚动的长度)，page计算的是内容坐标(距离内容最开始的位置，相对的点是内容的左上角，即，计算滚动条滚动的长度)。没有滚动条，则两者相同
+        function handleStart(ev) {
+            console.log('touchstart', ev.touches, ev.changedTouches, ev.targetTouches);
+        }
+        function handleMove() {
+            console.log('touchmove');
+        }
+        function handleEnd() {
+            console.log('touchend');
+        }
+
+
+
+    </script>
+</body>
+
+</html>
