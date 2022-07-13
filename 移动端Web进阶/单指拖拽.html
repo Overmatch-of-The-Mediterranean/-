@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        .backtotop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 30px;
+            -webkit-tap-highlight-color: transparent;
+            /* transform: translate3d(x, y, 0); */
+            /* 可以开启GPU加速，动画效率高 */
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" id="backtotop" class="backtotop">&uarr;</a>
+    <script>
+        let backtotop = document.getElementById('backtotop');
+        // backtotop.addEventListener('click', function () {
+        //     move(this, -10 + curPoint.x, -10 + curPoint.y);
+        //     curPoint.x += -10;
+        //     curPoint.y += -10;
+        // }, false);
+        // let curPoint = {
+        //     x: 0,
+        //     y: 0
+        // };
+        // function move(el, x, y) {
+        //     x = x || 0;
+        //     y = y || 0;
+        //     el.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)'
+        // }
+
+        function drag(el, options) {
+            options.x = typeof options.x !== 'undefined' ? options.x : true;
+            options.y = typeof options.y !== 'undefined' ? options.y : false;
+            if (!options.x && !options.y) return;
+            let curPoint = {
+                x: 0,
+                y: 0
+            };
+            let startPoint = {};
+            let isTouchMove = false;
+            el.addEventListener('touchstart', handleStart, false);
+            el.addEventListener('touchmove', handleMove, false);
+            el.addEventListener('touchend', handleEnd, false);
+            function handleStart(ev) {
+                let touch = ev.changedTouches[0];
+                startPoint.x = touch.pageX;
+                startPoint.y = touch.pageY;
+            };
+            function handleMove(ev) {
+                isTouchMove = true;
+                // 阻止浏览器的默认行为，即，阻止有滚动条时，向上拖拽，滚动条上升，箭头向上不动的行为
+                ev.preventDefault();
+                let touch = ev.changedTouches[0];
+                let diffPoint = {};
+                let movePoint = {
+                    x: 0,
+                    y: 0
+                };
+                diffPoint.x = touch.pageX - startPoint.x;
+                diffPoint.y = touch.pageY - startPoint.y;
+                if (options.x) {
+                    movePoint.x = diffPoint.x + curPoint.x;
+                }
+                if (options.y) {
+                    movePoint.y = diffPoint.y + curPoint.y;
+                }
+                move(el, movePoint.x, movePoint.y)
+            };
+            function handleEnd(ev) {
+                if (!isTouchMove) return;
+                let touch = ev.changedTouches[0];
+                curPoint.x += touch.pageX - startPoint.x;
+                curPoint.y += touch.pageY - startPoint.y;
+                isTouchMove = false;
+            };
+        }
+        function move(el, x, y) {
+            x = x || 0;
+            y = y || 0;
+            el.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)'
+        }
+
+        drag(backtotop, {
+            x: true,
+            y: true
+        })
+    </script>
+</body>
+
+</html>

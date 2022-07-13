@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            margin: 25px auto;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+    <script src="js/hammer.js"></script>
+    <script>
+        // touch算是基础事件，现实中用的事件是高级事件。
+        // 高级事件都是由touch封装的，移动端没有原生的事件支持
+        // 不要搞混事件和具体功能的关系
+        // 建议高级事件使用别人封装好的，兼容性好，HAMMER.js
+
+        let boxEl = document.getElementById('box');
+        let hammer = new Hammer(boxEl);
+        // 这里的事件对象ev不是原生的事件对象，往里面加了其他东西
+        hammer.on('swipe pan tap doubletap press pinck rotate', function (ev) {
+            console.log(ev.type);
+            console.log(ev);
+        });
+        hammer.on('swipeleft', function (ev) {
+            console.log('next');
+
+        });
+        hammer.on('swiperight', function (ev) {
+            console.log('prev');
+        });
+    </script>
+</body>
+
+</html>

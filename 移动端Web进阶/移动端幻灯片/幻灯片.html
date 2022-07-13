@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+    <div class="slider" id="slider">
+        <div class="slider-item-container">
+            <div class="slider-item">
+                <a href="#" class="slider-link">
+                    <img src="images/1.jpg" alt="" class="slider-img">
+                </a>
+            </div>
+            <div class="slider-item">
+                <a href="#" class="slider-link">
+                    <img src="images/2.jpg" alt="" class="slider-img">
+                </a>
+            </div>
+            <div class="slider-item">
+                <a href="#" class="slider-link">
+                    <img src="images/3.jpg" alt="" class="slider-img">
+                </a>
+            </div>
+            <div class="slider-item">
+                <a href="#" class="slider-link">
+                    <img src="images/4.jpg" alt="" class="slider-img">
+                </a>
+            </div>
+            <div class="slider-item">
+                <a href="#" class="slider-link">
+                    <img src="images/5.jpg" alt="" class="slider-img">
+                </a>
+            </div>
+        </div>
+        <!-- <div class="slider-indicator-container">
+            <span class="slider-indicator slider-indicator-active"></span>
+            <span class="slider-indicator"></span>
+            <span class="slider-indicator"></span>
+            <span class="slider-indicator"></span>
+            <span class="slider-indicator"></span>
+        </div> -->
+    </div>
+    <button id="prev">prev</button>
+    <button id="next">next</button>
+</body>
+<script src="js/hammer.js"></script>
+<script src="js/slider.js"></script>
+<script>
+    let hammer = new Hammer(slider.getItemContainer());
+    let isSwiping = false;
+    hammer.on('panmove', function (ev) {
+        let distance = ev.deltaX + slider.getDistanceByIndex(slider.getIndex());
+        slider.move(distance);
+    })
+    hammer.on('panend', function (ev) {
+        if (isSwiping) return;
+
+        let distance = ev.deltaX + slider.getDistanceByIndex(slider.getIndex());
+        let index = getIndexByDistance(distance);
+        slider.to(index);
+    });
+
+    // 根据容器的移动距离来获取索引
+    function getIndexByDistance(distance) {
+        if (distance > 0) {
+            return 0;
+        } else {
+            return Math.round(-distance / slider.getDistancePerSlider());
+        }
+    }
+    hammer.on('swipeleft', function (ev) {
+        isSwiping = true;
+        slider.next(function () {
+            isSwiping = false;
+        });
+    });
+    hammer.on('swiperight', function (ev) {
+        isSwiping = true;
+        slider.prev(function () {
+            isSwiping = false;
+        });
+    });
+</script>
+
+</html>
