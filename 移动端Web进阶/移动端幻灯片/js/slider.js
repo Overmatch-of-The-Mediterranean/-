@@ -7,9 +7,9 @@ function Slider(el, options) {
 
     // 处理参数
     this.options = {};
-    this.options.initIndex = typeof initIndex !== 'undefined' ? options.initIndex : defaults.initIndex;
-    this.options.speed = typeof speed !== 'undefined' ? options.speed : defaults.speed;
-    this.options.hasIndicator = typeof hasIndicator !== 'undefined' ? options.hasIndicator : defaults.hasIndicator;
+    this.options.initIndex = typeof options.initIndex !== 'undefined' ? options.initIndex : defaults.initIndex;
+    this.options.speed = typeof options.speed !== 'undefined' ? options.speed : defaults.speed;
+    this.options.hasIndicator = typeof options.hasIndicator !== 'undefined' ? options.hasIndicator : defaults.hasIndicator;
 
     // 获取有用的一些元素
     this.el = el;
@@ -21,7 +21,7 @@ function Slider(el, options) {
     this.maxIndex = this.items.length - 1;
     // this.index = this.options.initIndex; 不能直接使用
     this.index = this._adjustIndex(this.options.initIndex);
-    this.move(this.getDistanceByIndex(this.index));
+    this.move(this.getDistanceByIndex(this.index)); // 移动到最开始的图片上
 
     if (this.options.hasIndicator) {
         this._createIndicators();
@@ -39,7 +39,7 @@ Slider.prototype.to = function (index, cb) {
 
     let self = this;
     this.itemContainer.addEventListener('transitionend', function () {
-        self._setTransitionSpeed(0);
+        self._setTransitionSpeed(0); // 因为方法在Slider上,所以要用self存储
 
         if (typeof cb === 'function') {
             cb();
