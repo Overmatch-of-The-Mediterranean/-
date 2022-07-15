@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: red;
+            width: 150px;
+            /* height: 150px; */
+        }
+
+        /* 单行溢出省略 */
+        /* flex布局不能和单行文字溢出省略在同一个标签上用，可以在内层包一层标签，外层用flex，内层用单行文字溢出省略 */
+        .ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* 多行溢出省略不能和height一起用 */
+        /* 该方法只兼容webkit内核的，一般移动端也可以用，且可以和flex布局一起使用 */
+        .multiline-ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal !important;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="multiline-ellipsis">
+            地中海强者地中海强者地中海强者地中海强者
+        </div>
+    </div>
+</body>
+
+</html>

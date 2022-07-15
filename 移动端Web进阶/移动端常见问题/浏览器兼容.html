@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 移动端常见问题：
+        // 1.浏览器兼容性
+        // 2.移动端动画
+        // 3.click 300ms延迟
+        // 4.单行和多行文字溢出省略
+        // 5.水平居中和垂直居中
+
+        // 1.浏览器兼容性
+        // (1)html5:在不兼容的浏览器上，可以引用html5shiv.js文件来解决
+        // (2)css3: 添加前缀：
+        // one：使用编辑器带的插件，添加前缀
+        // two：使用预处理语言，如sass
+        // three：使用工程化手段，这是最常用的
+        //           解决兼容：引用Modernizr库，可以定制化解决,选择好后，下载，引入js文件
+        //                     如果浏览器有该功能，则会在html上添加类名，没有则添加no—xxx
+        //                      然后可以兼容的直接使用，不可以兼容的用兼容性写法写一套。
+        // (3)JS兼容性：浏览器检测，或特性检测两种方法，实际开发使用特性检测，如下例子
+        var requestAnimationFrame = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (fn) {
+                setTimeout(fn, 50);
+            }
+        requestAnimationFrame(function () {
+            console.log('111');
+        })
+
+    </script>
+</body>
+
+</html>

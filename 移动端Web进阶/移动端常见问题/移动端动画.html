@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* transition: transform 1s; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+    <button id="btn">start</button>
+    <script>
+        // 移动端动画：通过DOM结合JS，CSS3或Canvas结合JS
+        // 优先使用CSS3配合做动画，其中CSS3中优先使用transition，其次animation(做复杂动画有优势)，若CSS用不成，则使用JS配合，JS中优先使用requestAnimationFram(浏览器自动规定执行时间),其次两个set
+        // Animation库，提供封装好的动画效果
+        // canvas在做游戏时，使用的多。一般页面使用DOM为载体
+        var box = document.getElementById('box');
+        let btn = document.getElementById('btn');
+        let position = 0;
+        let dest = window.innerWidth - 100;
+        let speed = 10;
+        var requestAnimationFrame = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (fn) {
+                setTimeout(fn, 50);
+            }
+
+        function step() {
+            if (position < dest) {
+                position += speed;
+                move(box, position);
+                requestAnimationFrame(step);
+            } else {
+                position = dest;
+                move(box, position);
+            }
+        }
+        function move(el, position) {
+            el.style.transform = 'translate3d(' + position + 'px,0,0)'
+        }
+        btn.addEventListener('click', function () {
+            requestAnimationFrame(step);
+        }, false)
+    </script>
+</body>
+
+</html>

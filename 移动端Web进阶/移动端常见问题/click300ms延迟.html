@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 300ms原因是doubleclick,因为你点击第一下，浏览器需等待300ms，看你是否进行下一次操作
+        // 解决办法：
+        // 1.一些浏览器，如，chrome，可以在meta的content中设置width=device-width，默认不需要双击放大，这样可以解决300ms延迟
+        // 2.fastclick,下载并引入fastclick.js,并复制粘贴一段说明文档中的使用代码,原理：检测touchend，touchend没有延迟，当触发touchend时，其通过DOM自定义的事件来立即触发一个模拟的click事件
+        // 并把300ms后浏览器真正触发的那个事件阻止掉
+    </script>
+</body>
+
+</html>
