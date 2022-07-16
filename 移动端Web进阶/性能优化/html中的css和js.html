@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.CSS与JS的引入方式
+        //      看情况，内联外联结合使用
+        //      内联优点：减少HTTP请求，HTTP之所以费时，是因为很多时间花在建立前后端数据传输通道上
+        //      内联缺点：1.没办法复用
+        //               2.使得HTML文件变大，加载时间变长
+        //               3.代码都写在HTML文件中不利于后期维护？工程化手段可以解决这个问题，可以借助工具将外部的代码引入，如webpack，loader，babel结合使用，实现源码到可以上线的代码
+        //      外联优点：1.可以重复使用，有效利用浏览器的静态资源缓存
+        //               2.代码分离，利于后期维护
+        //      外联缺点：增加了HTTP请求
+        //      内联使用情况：首屏急需要看的
+
+        // 2.CSS与JS放置的位置
+        // CSS文件放在前面，即head里面
+        // JS文件一般放在标签后面，急需使用又和DOM元素没有关系的可以放在前面
+        // 优化HTTP大小：上线前JS和CSS文件要合并压缩，一般通过工具来完成
+        // 浏览器文件缓存后端来设置
+    </script>
+</body>
+
+</html>

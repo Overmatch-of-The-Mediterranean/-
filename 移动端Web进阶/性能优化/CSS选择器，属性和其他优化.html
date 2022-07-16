@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // CSS选择器优化
+        // 选中标签写CSS样式时，尽量简单又独立，且在执行选中标签的代码时，是从右向左依次查找，同时也要考虑权重
+        // 一般写样式用class，id一般配合JS使用
+        // *{p0;m0;} 少使用，用什么标签写什么标签
+        // 高级选择器尽量少使用，虽然方便，但性能低，属性选择器
+
+
+        // CSS属性和其他优化
+        // 写CSS属性时，减少代码的冗余，相同样式写在一起，可以合并的属性要合并，如，margin
+
+
+        // 其他优化
+        // 引入文件时，不要使用@import引入，因为它会发送HTTP请求
+        // 可以使用SASS，SASS中的@import是将文件中的代码复制过来一份
+        // 移动端做动画，优先使用CSS3,CSS3用不成，再用JS，JS中优先使用requestAnimationFram，GPU加速也要合理开启，防止设备性能消耗过大
+        // 移动端布局优先使用flex布局，float布局尽量不要使用，同等情况下，float布局消耗的性能多
+    </script>
+</body>
+
+</html>

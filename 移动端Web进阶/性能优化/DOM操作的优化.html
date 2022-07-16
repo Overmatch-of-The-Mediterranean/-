@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // DOM操作非常消耗性能，优化DOM操作主要有两种方式
+        // 1.加快单次DOM操作的速度
+        //      使用ID获取元素的方式是最快的
+        //      获取元素时，最好通过父元素查找，不要通过文档查找
+        // 2.减少DOM操作的次数
+        //      合理存储DOM操作，避免了每次循环，都要进行一次DOM操作
+        //      修改样式不要通过JS一个一个修改，这样是DOM操作，可以把要修改的样式写在一个类中，通过少许DOM操作添加进去
+        //      浏览器的渲染过程：重排(花费大量时间计算元素的位置和元素的关系)，重绘(计算颜色，透明度等等，然后绘制到页面中来)
+        //      每次对DOM进行操作都可能引发重排或重绘，尤其是改变元素位置时，会引发重排。重绘性能消耗相对较低，重排性能消耗大，尽量避免重排，减少重绘
+
+        // 注意碎片化添加元素，看视频
+
+
+
+    </script>
+</body>
+
+</html>
